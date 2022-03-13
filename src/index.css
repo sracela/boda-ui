@@ -86,6 +86,15 @@ h6,
   font-size: 12px;
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: #333333;
+}
+
 h1.inline,
 h2.inline,
 h3.inline,
@@ -138,6 +147,58 @@ img.with-border {
   border: 1px solid #6a6a6a;
 }
 
+/* ----------------------------------------------*/
+/* 07.1	Page Layout								 */
+/* ----------------------------------------------*/
+#content {
+  position: relative;
+  background-color: #f6f6f6;
+}
+
+/* ----------------------------------------------*/
+/* 07.2 PAGE ELEMENT	 	 					 */
+/* ----------------------------------------------*/
+
+/* 07.2.1 Page Title Wrapper					 */
+/* ----------------------------------------------*/
+.page-title {
+  padding-bottom: 50px;
+}
+
+/* 07.2.2 Section Title Wrapper					 */
+/* ----------------------------------------------*/
+.section-title {
+  margin-bottom: 70px;
+}
+
+.section-title h2 {
+  font-size: 40px; /*same size with h1*/
+}
+
+/* 07.2.4 Title-Excerpt White Box				 */
+/* ----------------------------------------------*/
+.title-excerpt{
+	position:relative;
+	background-color:#FFF; 
+	padding:25px;
+}
+
+.title-excerpt .custom-heart-icon{
+	position:absolute;
+	margin: auto; 
+	left:0; 
+	right:0; 
+	top:-12px;
+	color:#f0394d !important; 
+	background-color:#e1dddd !important;
+}
+
+/* 07.2.5 Blurb Wrapper							 */
+/* ----------------------------------------------*/
+.blurb {
+  margin-top: 20px;
+}
+
 /* 07.2.6  Align Middle Wrapper					 */
 /* ----------------------------------------------*/
 .alignment {
@@ -169,6 +230,234 @@ img.with-border {
   max-width: 100%;
   height: auto;
 }
+
+
+/* 07.2.7 IMAGE & VIDEO DIVIDER					 */
+/* ----------------------------------------------*/
+.divider-wrapper{
+	padding:130px 0;
+}
+
+.image-divider {
+	position:relative;
+	background-size:cover;
+	-webkit-background-size:cover;
+	background-attachment: scroll;
+	background-position:center center;
+	background-repeat:no-repeat;
+	color:#FFF;
+	-webkit-backface-visibility: hidden;	
+}
+
+.image-divider.mobile{
+	background-attachment:scroll;
+}
+
+.video-divider {
+	position:relative;
+	color:#FFF;
+	z-index:3;
+}
+
+.image-divider h1, .image-divider h2,
+.image-divider h3, .image-divider h4,
+.image-divider h5, .image-divider h6,
+.video-divider h1, .video-divider h2,
+.video-divider h3, .video-divider h4,
+.video-divider h5, .video-divider h6 {
+	color:#FFF;
+}
+
+
+.image-divider .divider-overlay,
+.video-divider .divider-overlay{
+	position:absolute; 
+	top:0; 
+	display:block; 
+	width:100%; 
+	height:100%; 
+	background-color:#000; 
+	opacity:0.3
+}
+
+.image-divider.auto-height,
+.video-divider.auto-height {
+	height:100%;
+	width:100%;
+	padding:150px 0;
+}
+
+.image-divider.fixed-height,
+.video-divider.fixed-height {
+	height:700px;
+	width:100%;
+	padding:0;
+}
+
+/* 07.2.8 SPACE AND LINE DIVIDER 				 */
+/* ----------------------------------------------*/
+.space-divider{
+	display:block;
+	height:150px
+}
+
+
+hr.line-divider{
+	height:2px;
+	border:none;
+	color:#e1dddd;
+	background-color:#e1dddd; 
+	margin:50px 0
+}
+
+
+
+/* 07.2.10 BUTTON					 			 */
+/* ----------------------------------------------*/
+a.de-button, span.de-button, input[type=submit]{
+	display:inline-block; 	
+	margin:0 auto; 
+	margin-top:20px; 
+	background-color:#FFF; 
+	font-family: 'Oswald', sans-serif; 	
+	border:solid 1px #6a6a6a
+}
+
+a.de-button.outline, span.de-button.outline, input[type=submit].outline{
+	background-color:transparent; 
+	border:solid 1px #FFF;
+	color:#FFF;
+}
+
+a.de-button.reverse, span.de-button.reverse, input[type=submit].reverse{
+	background-color:#f0394d; 
+	border:solid 1px #f0394d;
+	color:#FFF;
+}
+
+a.de-button.small, span.de-button.small, input[type=submit].small{
+	padding:8px 26px; 
+	font-size:14px; 
+}
+
+a.de-button.medium, span.de-button.medium, input[type=submit].medium{
+	padding:10px 50px; 
+	font-size:16px; 
+}
+
+a.de-button.large, span.de-button.large, input[type=submit].large{
+	padding:14px 70px; 
+	font-size:20px; 
+}
+
+a.de-button:hover, input[type=submit]:hover{
+	background-color:#f0394d;
+	border-color:#f0394d;
+	color:#FFF;
+	text-decoration:none;
+}
+
+a.de-button.reverse:hover, input[type=submit].reverse:hover{
+	background-color:#FFF;
+	border-color:#FFF;
+	color:#6a6a6a;
+	text-decoration:none;
+	border:solid 1px #6a6a6a
+}
+
+input[type=submit]:disabled, input[type=submit]:hover:disabled{
+   background-color:#CCC !important;
+   border:solid 1px #CCC !important;
+   color:#FFF !important;;
+}
+
+/* 07.2.11 Banner Text				 			 */
+/* ----------------------------------------------*/
+.banner-text {
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.banner-text.small {
+  padding: 2px 30px;
+}
+
+.banner-text.medium {
+  padding: 2px 50px;
+}
+
+.banner-text.large {
+  padding: 2px 70px;
+}
+
+.banner-text.full {
+  width: 100%;
+}
+
+.banner-text.light {
+  color: #fff;
+  border-top: medium double #fff;
+  border-bottom: medium double #fff;
+}
+
+.banner-text.light * {
+  color: #fff;
+}
+
+.banner-text.dark {
+  color: #6a6a6a;
+  border-top: medium double #6a6a6a;
+  border-bottom: medium double #6a6a6a;
+}
+
+.banner-text.dark * {
+  color: #333333;
+}
+
+.banner-text.withlove {
+  position: relative;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.banner-text.withlove:before {
+  display: block;
+  font-family: "fontello";
+  position: absolute;
+  font-size: 22px;
+  color: #fff;
+  content: "\e806";
+  top: -17px;
+  left: 0;
+  right: 0;
+  margin-left: 19px;
+}
+
+.banner-text.withlove.dark:before {
+  color: #e1dddd;
+}
+
+.banner-text.withlove:after {
+  display: block;
+  font-family: "fontello";
+  position: absolute;
+  font-size: 22px;
+  color: #f0394d;
+  content: "\e806";
+  top: -17px;
+  left: 0;
+  right: 0;
+  margin-right: 19px;
+}
+
 
 /* BOOTSTRAP */
 .col-xs-1,
@@ -225,6 +514,10 @@ img.with-border {
   padding-left: 15px;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -238,7 +531,7 @@ img.with-border {
 }
 @media (min-width: 768px) {
   .container {
-	  width: 750px;
+    width: 750px;
   }
 }
 
@@ -246,4 +539,32 @@ img.with-border {
   .container {
     width: 970px;
   }
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  /* .col-md-6, */
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11
+  /* .col-md-12  */
+  {
+    float: left;
+  }
+  .col-md-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-md-10 {
+    width: 83.33333333%;
+  }
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+  .col-md-4 {
+    width: 29%;
 }
+}
+

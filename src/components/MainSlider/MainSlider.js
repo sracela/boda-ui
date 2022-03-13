@@ -2,8 +2,7 @@
 import "./MainSlider.css";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
-
-import { FaHeart } from "react-icons/fa";
+import HeartDivider from "../HeartDivider/HeartDivider";
 
 const responsive = {
   desktop: {
@@ -69,17 +68,7 @@ function MainSlider() {
                   >
                     <h4>*** NOS CASAMOS ***</h4>
                   </div>
-                  <div class="heart-divider" style={{ margin: "0" }}>
-                    <span class="white-line" style={{ width: "10px" }}></span>
-                    <span class="pink-heart">
-                      <FaHeart />
-                    </span>
-
-                    <span class="white-heart">
-                      <FaHeart />
-                    </span>
-                    <span class="white-line" style={{ width: "10px" }}></span>
-                  </div>
+                  <HeartDivider isWhite />
                 </div>
               </div>
             </div>
@@ -91,9 +80,6 @@ function MainSlider() {
       <Carousel {...carouselParams}>
         <div
           className="slide-image image-1"
-          // style={{
-          //   backgroundImage: "url('assets/images/banner-1.jpg')",
-          // }}
         ></div>
 
         <div
@@ -104,9 +90,6 @@ function MainSlider() {
         ></div>
         <div
           className="slide-image image-3"
-          // style={{
-          //   backgroundImage: "url('assets/images/banner-3.jpg')",
-          // }}
         ></div>
       </Carousel>
     </section>

@@ -1,0 +1,232 @@
+/* ----------------------------------------------*/
+/* 12.1 Couple Section							 */
+/* ----------------------------------------------*/
+
+#couple {
+  padding: 140px 0 100px 0;
+  display: 'block';
+  min-height: 800px;
+}
+
+.couple-name {
+  font-family: "Pacifico", cursive;
+  font-size: 41px;
+  padding-top: 100px;
+  color: #fff;
+  line-height: 41px;
+  -ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+
+.couple-excerpt {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/*===============================================*/
+/* 09. PHOTO ITEM								 */
+/*===============================================*/
+.photo-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-item.frame-border {
+  background-color: #fff;
+  border: 18px solid #fff;
+}
+
+/* ----------------------------------------------*/
+/* 09.1 Image 									 */
+/* ----------------------------------------------*/
+.photo-item img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 375px;
+  filter: brightness(0.75);
+  -webkit-filter: brightness(0.75);
+}
+
+/* ----------------------------------------------*/
+/* 09.2 Layer 								 	 */
+/* ----------------------------------------------*/
+.photo-item .layer {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.photo-item .layer.wh100 {
+  width: 100%;
+  height: 100%;
+}
+
+.photo-item .layer.wh95 {
+  width: 95%;
+  height: 95%;
+}
+
+/* 09.2.1 Layer : Second Image   				 */
+/* ----------------------------------------------*/
+.photo-item .layer.second-image {
+  opacity: 0;
+}
+
+/* 09.2.2 Layer : Black Overlay  				 */
+/* ----------------------------------------------*/
+.photo-item .layer.opacity-black-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0.3;
+}
+
+.photo-item .layer.hidden-black-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+
+/* 09.2.3 Layer : Photo Caption  				 */
+/* ----------------------------------------------*/
+.photo-item .layer.photo-caption {
+  opacity: 1;
+}
+
+.photo-item .layer.hidden-photo-caption {
+  opacity: 0;
+}
+
+.photo-item .layer.border-photo-caption {
+  opacity: 1;
+  border: 1px solid #fff;
+}
+
+.photo-item .layer.hidden-border-photo-caption {
+  opacity: 0;
+  border: 1px solid #fff;
+}
+
+/* 09.2.4 Layer : Icon / Button Link		 	 */
+/* ----------------------------------------------*/
+.photo-item .layer.link {
+  opacity: 1;
+}
+
+.photo-item .layer.hidden-link {
+  opacity: 0;
+}
+
+.photo-item:hover .layer.hover-animation.fade-in {
+  opacity: 1;
+}
+
+.photo-item:hover .layer.hover-animation.half-fade-in {
+  opacity: 0.3;
+}
+
+.photo-item:hover .layer.hover-animation.fade-out {
+  opacity: 0;
+}
+
+/* ----------------------------------------------*/
+/* 09.3 on Hover Animation					 	*/
+/* ----------------------------------------------*/
+.photo-item img.hover-animation,
+.photo-item:hover img.hover-animation {
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  /*The transition will be disabled on script.js for tablet/mobile*/
+}
+
+.photo-item .layer.hover-animation,
+.photo-item:hover .layer.hover-animation {
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  /*The transition will be disabled on script.js for tablet/mobile*/
+}
+
+/* 09.3.1 on Hover Animation Duration		 	 */
+/* ----------------------------------------------*/
+.photo-item:hover .layer.hover-animation.duration1,
+.photo-item:hover img.hover-animation.duration1 {
+  transition-duration: 0.5s;
+}
+
+.photo-item:hover .layer.hover-animation.duration2,
+.photo-item:hover img.hover-animation.duration12 {
+  transition-duration: 1s;
+}
+
+.photo-item:hover .layer.hover-animation.duration3,
+.photo-item:hover img.hover-animation.duration3 {
+  transition-duration: 1.5s;
+}
+
+.photo-item:hover .layer.hover-animation.duration4,
+.photo-item:hover img.hover-animation.duration4 {
+  transition-duration: 2s;
+}
+
+.photo-item:hover .layer.hover-animation.duration5,
+.photo-item:hover img.hover-animation.duration5 {
+  transition-duration: 2.5s;
+}
+
+/* 09.3.2 on Hover Animation Delay		 	 	 */
+/* ----------------------------------------------*/
+.photo-item:hover .layer.hover-animation.delay1,
+.photo-item:hover img.hover-animation.delay1 {
+  transition-delay: 0.5s;
+}
+
+.photo-item:hover .layer.hover-animation.delay2,
+.photo-item:hover img.hover-animation.delay2 {
+  transition-delay: 1s;
+}
+
+.photo-item:hover .layer.hover-animation.delay3,
+.photo-item:hover img.hover-animation.delay3 {
+  transition-delay: 1.5s;
+}
+
+.photo-item:hover .layer.hover-animation.delay4,
+.photo-item:hover img.hover-animation.delay4 {
+  transition-delay: 2s;
+}
+
+.photo-item:hover .layer.hover-animation.delay5,
+.photo-item:hover img.hover-animation.delay5 {
+  transition-delay: 2.5s;
+}
+
+/* 09.3.3 on Hover Zoom In					 	 */
+/* ----------------------------------------------*/
+.photo-item:hover img.hover-animation.image-zoom-in {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* 09.3.4 on Hover Zoom In and Rotate	 	 	*/
+/* ----------------------------------------------*/
+.photo-item:hover img.hover-animation.image-zoom-rotate {
+  -webkit-transform: rotate(7deg) scale(1.1);
+  -ms-transform: rotate(7deg) scale(1.1);
+  -o-transform: rotate(7deg) scale(1.1);
+  transform: rotate(7deg) scale(1.1);
+}
+
+/* 09.3.5 on Hover Fade Out				 		 */
+/* ----------------------------------------------*/
+.photo-item:hover img.hover-animation.image-fade-out {
+  opacity: 0;
+}

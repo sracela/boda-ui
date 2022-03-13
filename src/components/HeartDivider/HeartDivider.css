@@ -1,0 +1,48 @@
+.heart-divider {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.white-line {
+  width: 30px;
+  height: 8px;
+  display: inline-block;
+  border-top: solid 1px #fff;
+}
+
+.pink-heart {
+  margin-left: 8px;
+  color: #035959;
+  font-size: 18px;
+  position: relative;
+  z-index: 3;
+}
+
+.white-heart {
+  margin-right: 8px;
+  color: #fff;
+  font-size: 18px;
+  margin-left: -4px;
+  position: relative;
+  z-index: 2;
+}
+
+.grey-heart {
+  margin-right: 8px;
+  color: #e1dddd;
+  font-size: 18px;
+  margin-left: -4px;
+  position: relative;
+  z-index: 2;
+}
+
+.grey-line {
+  width: 30px;
+  height: 8px;
+  display: inline-block;
+  border-top: solid 2px #e1dddd;
+}
