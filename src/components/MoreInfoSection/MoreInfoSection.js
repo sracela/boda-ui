@@ -137,9 +137,8 @@ function MoreInfoSection() {
                   {/* <!-- TITLE & EXCERPT --> */}
                   <div class="title-excerpt">
                     <h3>
-                      <a href="http://demo.dethemes.com/forever/versions/top-bottom-bar/accomodation.html">
                         MENÚ ESPECIAL
-                      </a>
+             
                     </h3>
                     <div>
                       <p>¿Eres vegano o vegetariano o tienes alguna intolerancia?</p>
