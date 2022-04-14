@@ -34,7 +34,7 @@ function ComingSoonSection({handleClick}) {
                   </div>
                   <div>
                     <a
-                      href="#"
+                      href="/"
                       class="de-button medium animation fadeInUp"
                       onClick={handleClick}
                     >
