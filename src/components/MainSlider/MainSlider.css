@@ -116,19 +116,6 @@
   filter: brightness(0.65);
   -webkit-filter: brightness(0.65);
 }
-
-.image-1{
-	background-image: url('assets/images/banner-1.JPG');
-}
-.image-3{
-	background-image: url('assets/images/banner-3.JPG');
-}
-
-@media (max-width: 768px) {
-	.image-3{
-		background-image: url('assets/images/banner-mobile-3.png');
-	}
-  }
   
 
 /* 06.5.3 Title Wrapper */

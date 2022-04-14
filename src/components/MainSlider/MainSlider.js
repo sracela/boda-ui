@@ -109,17 +109,24 @@ useEffect(() => {
       {/* <ul class="slides"> */}
       <Carousel {...carouselParams}>
         <div
-          className="slide-image image-1"
+          className="slide-image"
+          style={{
+            backgroundImage: "url('assets/images/banner-1.JPG')",
+          }}
         ></div>
 
         <div
           className="slide-image"
           style={{
-            backgroundImage: "url('assets/images/banner-2.jpg')",
+            backgroundImage: "url('assets/images/banner-2.JPG')",
           }}
         ></div>
         <div
-          className="slide-image image-3"
+          id="image-3"
+          className="slide-image"
+          style={{
+            backgroundImage: "url('assets/images/banner-3.JPG')",
+          }}
         ></div>
       </Carousel>
     </section>
