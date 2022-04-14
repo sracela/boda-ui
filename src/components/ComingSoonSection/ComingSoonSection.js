@@ -1,8 +1,6 @@
 import "./ComingSoonSection.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 
-import "react-multi-carousel/lib/styles.css";
-
 function ComingSoonSection({handleClick}) {
   return (
     <section id="main-slider" class="flexslider" style={{ height: "100vh" }}>
