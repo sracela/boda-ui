@@ -19,37 +19,31 @@
 	margin-bottom:25px;
 }
 
-
-#counting {
-  font-size: 55px;
-  line-height: 45px;
-}
-
-#down {
-  font-size: 50px;
-  line-height: 50px;
-}
-
-.simple-countdown{
-	width:250px; 
-	margin:0 auto; 
-	margin-top:25px
-}
-
-.simple-countdown.is-countdown {
-	border: none;
-	background-color:transparent;
-	color:#FFF;
-	font-family: 'Oswald', sans-serif; 
-	font-size:13px;
-}
-
-.simple-countdown .countdown-amount {
-	display:inline-block;
-	font-size:18px;
-	letter-spacing:2px;
-}
-.simple-countdown .countdown-period {
-    display:inline-block;
-	font-size:18px;
-}
+#countdown {
+	padding: 16px 0;
+	color: #fff;
+  }
+  
+  #countdownLi {
+	display: inline-block;
+	font-size: 1.5em;
+	list-style-type: none;
+	padding: 1em;
+	text-transform: uppercase;
+  }
+  
+  #countdownLi span {
+	display: block;
+	font-size: 4.5rem;
+  }
+  
+  @media all and (max-width: 768px) {
+	#countdownLi {
+	  font-size: calc(1.125rem * var(--smaller));
+	}
+  
+	#countdownLi span {
+	  font-size: calc(3.375rem * var(--smaller));
+	}
+  }
+  

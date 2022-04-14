@@ -2,6 +2,36 @@
 /* 12.4 RSVP Section				 			 */
 /* ----------------------------------------------*/
 #rsvp{
-	padding:85px 0;
-	background-color:#FFF
+	padding:100px 0;
+	background-color:rgba(27, 95, 95, 0.722);
+	color: #fff;
+	min-height: 375px;
 }
+.de-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 8px 0px;
+    -webkit-transition: 0.3s all ease;
+    -moz-transition: 0.3s all ease;
+    -o-transition: 0.3s all ease;
+    -ms-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+}
+.de-icon.square, .de-icon.circle, .de-icon.rounded {
+    background-color: #fff;
+    color: #035959;
+}
+.de-icon.circle {
+    border-radius: 50%;
+}
+.de-icon.medium-size {
+    width: 54px;
+    height: 54px;
+    line-height: 60px;
+    font-size: 21px;
+}
+

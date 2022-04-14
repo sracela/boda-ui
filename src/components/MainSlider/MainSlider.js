@@ -3,6 +3,7 @@ import "./MainSlider.css";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import HeartDivider from "../HeartDivider/HeartDivider";
+import { useEffect, useState } from "react";
 
 const responsive = {
   desktop: {
@@ -43,6 +44,21 @@ const carouselParams = {
 };
 
 function MainSlider() {
+  const second = 1000,
+  minute = second * 60,
+  hour = minute * 60,
+  day = hour * 24;
+
+const countDown = new Date("8/13/2022").getTime();
+const [distance, setDistance] = useState(countDown - new Date().getTime());
+
+useEffect(() => {
+  const intervalID = setInterval(() => {
+    const now = new Date().getTime();
+    setDistance(countDown - now);
+  }, 1000);
+  return () => clearInterval(intervalID);
+}, [countDown]);
   return (
     <section id="main-slider" class="flexslider" style={{ height: "100vh" }}>
       {/* MAIN SLIDER TITLE OUTTER WRAPPER */}
@@ -62,12 +78,26 @@ function MainSlider() {
                       <span class="pink-dot">.</span>22 -
                     </div>
                   </div>
-                  <div
-                    class="banner-text light medium"
-                    style={{ letterSpacing: "3px" }}
-                  >
-                    <h4>*** NOS CASAMOS ***</h4>
-                  </div>
+                  <div id="countdown" >
+                <div id="countdownLi">
+                  <span id="days">{Math.floor(distance / day)}</span>D
+                </div>
+                <div id="countdownLi">
+                  <span id="hours">{Math.floor((distance % day) / hour)}</span>H
+                </div>
+                <div id="countdownLi">
+                  <span id="minutes">
+                    {Math.floor((distance % hour) / minute)}
+                  </span>
+                  M
+                </div>
+                <div id="countdownLi">
+                  <span id="seconds">
+                    {Math.floor((distance % minute) / second)}
+                  </span>
+                  S
+                </div>
+              </div>
                   <HeartDivider isWhite />
                 </div>
               </div>

@@ -1,0 +1,85 @@
+/* general styling */
+:root {
+  --smaller: 0.75;
+}
+
+/*===============================================*/
+/* 06. MAIN-SLIDER					 		 	 */
+/*===============================================*/
+#main-slider {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* ----------------------------------------------*/
+/* 06.1 Main Slider Height					     */
+/* ----------------------------------------------*/
+/* #main-slider.fullscreen - script.js			 */
+
+#main-slider.fixed-height {
+  position: relative;
+  height: 625px;
+}
+
+/* ----------------------------------------------*/
+/* 06.2 Main Slider Flexslider			  		 */
+/* ----------------------------------------------*/
+#main-slider.flexslider {
+  border: none;
+}
+
+#main-slider .slides,
+#main-slider.flexslider .slides li {
+  position: relative;
+  height: inherit;
+  width: 100%;
+  overflow: hidden;
+}
+
+#main-slider.flexslider .flex-viewport {
+  position: relative;
+  height: inherit;
+}
+
+/* 06.2.1 Main Slider Flexslider Control Nav & Paging */
+/* ----------------------------------------------*/
+#main-slider .flex-control-nav,
+.flex-control-paging {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+}
+
+#main-slider.flexslider .flex-direction-nav .flex-prev {
+  left: 0px;
+}
+#main-slider.flexslider .flex-direction-nav .flex-next {
+  right: 0px;
+  text-align: right;
+}
+#main-slider.flexslider:hover .flex-prev {
+  opacity: 0.7;
+  left: 100px;
+}
+#main-slider.flexslider:hover .flex-next {
+  opacity: 0.7;
+  right: 100px;
+}
+
+#main-slider .flex-direction-nav a {
+  z-index: 4;
+  line-height: 40px;
+}
+
+#info {
+	padding:140px 0 140px 0;
+  background-color: #fff;
+  /* color: #035959; */
+}
+.de-icon.aligncenter {
+  margin: 0 auto;
+}

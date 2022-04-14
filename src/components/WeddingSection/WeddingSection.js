@@ -1,8 +1,6 @@
 import "./WeddingSection.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 
-import Countdown from "react-countdown";
-
 function WeddingSection() {
   return (
     <section id="the-wedding">
@@ -15,8 +13,8 @@ function WeddingSection() {
               <h2>LA BODA</h2>
 
               <p class="blurb">
-                Lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum
-                dolor sit amet, consectetur adipiscing
+                Aquí tienes toda la información que necesitas conocer para no
+                perdernos el evento del año. ¡Os esperamos!
               </p>
 
               <HeartDivider />
@@ -27,15 +25,14 @@ function WeddingSection() {
         {/* <!-- ROW-2 --> */}
         <div class="row">
           <div class="col-md-offset-1 col-md-10">
-            <div class="container-fluid">
-              <div class="row">
+
                 {/* <!-- ITEM-1 --> */}
-                <div class="wedding-item col-md-4 animation fadeIn">
+                <div class="wedding-item col-md-5 animation fadeIn">
                   {/* <!--PHOTO-ITEM--> */}
                   <div class="photo-item">
                     {/* <!--PHOTO--> */}
                     <img
-                      src="assets/images/the-wedding-1a.jpg"
+                      src="assets/images/iglesia.jpg"
                       alt=""
                       class="hover-animation image-zoom-in"
                     />
@@ -49,7 +46,7 @@ function WeddingSection() {
                       <div class="alignment">
                         <div class="v-align center-middle">
                           <a
-                            href="http://demo.dethemes.com/forever/versions/top-bottom-bar/location.html"
+                            href="https://goo.gl/maps/heaiC136sZss8xUZA"
                             class="de-button outline small"
                           >
                             OBTÉN LA DIRECCIÓN
@@ -59,28 +56,34 @@ function WeddingSection() {
                     </div>
                   </div>
 
-                  <div class="title-excerpt">
+                  <div class="title-excerpt" style={{backgroundColor: '#f6f6f6'}}>
                     <h3>
-                      <a href="http://demo.dethemes.com/forever/versions/top-bottom-bar/location.html">
-                        IGLESIA
+                      <a href="https://goo.gl/maps/heaiC136sZss8xUZA">
+                        LA CEREMONIA
                       </a>
                     </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer ultrices malesuada ante quis pharetra. Nullam non{" "}
-                    </p>
+                    <div>
+                      <p>La ceremonia se celebrará en:</p>
+                      <h4 style={{ textAlign: "center" }}>
+                        <a href="https://goo.gl/maps/heaiC136sZss8xUZA">
+                          Iglesia de SANTA MARINA, Sarria
+                        </a>
+                      </h4>
+                      <h4 style={{ textAlign: "center" }}>Hora: 13:00</h4>
+                    </div>
                   </div>
                 </div>
 
                 {/* <!-- ITEM-2 --> */}
-                <div class="wedding-item col-md-4 animation delay1 fadeIn">
+                <div class="wedding-item col-md-5 animation delay1 fadeIn">
                   {/* <!--PHOTO-ITEM--> */}
                   <div class="photo-item">
                     {/* <!--PHOTO--> */}
                     <img
-                      src="assets/images/the-wedding-4a.jpg"
+                      src="assets/images/finca-fortaleza.jpg"
                       alt=""
                       class="hover-animation image-zoom-in"
+                      style={{maxHeight: '200px'}}
                     />
 
                     {/* <!--PHOTO OVERLAY--> */}
@@ -93,10 +96,10 @@ function WeddingSection() {
                       <div class="alignment">
                         <div class="v-align center-middle">
                           <a
-                            href="http://demo.dethemes.com/forever/versions/top-bottom-bar/gift.html"
+                            href="https://goo.gl/maps/hyxuptiPyeJq17TM7"
                             class="de-button outline small"
                           >
-                            SABER MÁS
+                            OBTÉN LA DIRECCIÓN
                           </a>
                         </div>
                       </div>
@@ -104,66 +107,27 @@ function WeddingSection() {
                   </div>
 
                   {/* <!-- TITLE & EXCERPT --> */}
-                  <div class="title-excerpt">
+                  <div class="title-excerpt" style={{backgroundColor: '#f6f6f6'}}>
                     <h3>
-                      <a href="http://demo.dethemes.com/forever/versions/top-bottom-bar/gift.html">
-                        COMIDA
+                      <a href="https://goo.gl/maps/hyxuptiPyeJq17TM7">
+                        LA FIESTA
                       </a>
                     </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer ultrices malesuada ante quis pharetra. Nullam non{" "}
-                    </p>
+                    <div>
+                      <p>Seguiremos con la fiesta en:</p>
+                      <h4 style={{ textAlign: "center" }}>
+                        <a href="https://goo.gl/maps/hyxuptiPyeJq17TM7">
+                          Finca 'A FORTALEZA', Lugo
+                        </a>
+                      </h4>
+                      <h4 style={{ textAlign: "center", visibility: "hidden" }}>
+                        Finca 'A FORTALEZA', Lugo
+                      </h4>
+                    </div>
                   </div>
                   {/* <!-- END of TITLE & EXCERPT --> */}
                 </div>
 
-                {/* <!-- ITEM-3 --> */}
-                <div class="wedding-item col-md-4 animation delay2 fadeIn">
-                  {/* <!--PHOTO-ITEM--> */}
-                  <div class="photo-item">
-                    {/* <!--PHOTO--> */}
-                    <img
-                      src="assets/images/accomodation.jpg"
-                      alt=""
-                      class="hover-animation image-zoom-in"
-                    />
-
-                    {/* <!--PHOTO OVERLAY--> */}
-                    <div class="layer wh95 hidden-black-overlay hover-animation fade-in"></div>
-
-                    <div class="layer wh95 border-photo-caption fade-out"></div>
-
-                    {/* <!--ICON LINK--> */}
-                    <div class="layer wh100 hidden-link hover-animation delay1 fade-in">
-                      <div class="alignment">
-                        <div class="v-align center-middle">
-                          <a
-                            href="http://demo.dethemes.com/forever/versions/top-bottom-bar/accomodation.html"
-                            class="de-button outline small"
-                          >
-                            SABER MÁS
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* <!-- TITLE & EXCERPT --> */}
-                  <div class="title-excerpt">
-                    <h3>
-                      <a href="http://demo.dethemes.com/forever/versions/top-bottom-bar/accomodation.html">
-                        FIESTA
-                      </a>
-                    </h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer ultrices malesuada ante quis pharetra. Nullam non{" "}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
