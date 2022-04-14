@@ -1,7 +1,8 @@
 import "./ComingSoonSection.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
+import { Link } from "react-router-dom";
 
-function ComingSoonSection({handleClick}) {
+function ComingSoonSection({ handleClick }) {
   return (
     <section id="main-slider" class="flexslider" style={{ height: "100vh" }}>
       {/* MAIN SLIDER TITLE OUTTER WRAPPER */}
@@ -33,13 +34,11 @@ function ComingSoonSection({handleClick}) {
                     <h5 style={{ color: "#035959" }}>SARRIA, LUGO</h5>
                   </div>
                   <div>
-                    <a
-                      href="/"
-                      class="de-button medium animation fadeInUp"
-                      onClick={handleClick}
-                    >
-                      ENTRAR
-                    </a>
+                    <Link to="/home">
+                      <span class="de-button medium animation fadeInUp">
+                        ENTRAR
+                      </span>
+                    </Link>
                   </div>
 
                   {/* <div

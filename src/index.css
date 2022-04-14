@@ -314,7 +314,7 @@ hr.line-divider{
 
 /* 07.2.10 BUTTON					 			 */
 /* ----------------------------------------------*/
-a.de-button, span.de-button, input[type=submit]{
+de-button, span.de-button, input[type=submit]{
 	display:inline-block; 	
 	margin:0 auto; 
 	margin-top:20px; 
@@ -335,29 +335,29 @@ a.de-button.reverse, span.de-button.reverse, input[type=submit].reverse{
 	color:#FFF;
 }
 
-a.de-button.small, span.de-button.small, input[type=submit].small{
+.de-button.small, span.de-button.small, input[type=submit].small{
 	padding:8px 26px; 
 	font-size:14px; 
 }
 
-a.de-button.medium, span.de-button.medium, input[type=submit].medium{
+.de-button.medium, span.de-button.medium, input[type=submit].medium{
 	padding:10px 50px; 
 	font-size:16px; 
 }
 
-a.de-button.large, span.de-button.large, input[type=submit].large{
+.de-button.large, span.de-button.large, input[type=submit].large{
 	padding:14px 70px; 
 	font-size:20px; 
 }
 
-a.de-button:hover, input[type=submit]:hover{
+.de-button:hover, input[type=submit]:hover{
 	background-color:#035959;
 	border-color:#035959;
 	color:#FFF;
 	text-decoration:none;
 }
 
-a.de-button.reverse:hover, input[type=submit].reverse:hover{
+.de-button.reverse:hover, input[type=submit].reverse:hover{
 	background-color:#FFF;
 	border-color:#FFF;
 	color:#6a6a6a;

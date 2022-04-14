@@ -9,43 +9,49 @@ import FooterSection from "./components/FooterSection/FooterSection";
 import ComingSoonSection from "./components/ComingSoonSection/ComingSoonSection";
 import InfoSection from "./components/InfoSection/InfoSection";
 import MoreInfoSection from "./components/MoreInfoSection/MoreInfoSection";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+const Home = () => (
+  <>
+    {" "}
+    {/* MAIN SLIDER */}
+    <MainSlider />
+    {/* CONTENT SECTION */}
+    <section id="content">
+      <InfoSection />
+      <CoupleSection />
+      {/* <CountingDownSection /> */}
+      <WeddingSection />
+      <MoreInfoSection />
+      <RSVPSection />
+    </section>
+    <FooterSection />
+  </>
+);
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [entrar, setEntrar] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
   }, []);
-  
-  return (
-    <div className="sb-site">
-      {/* PRELOADER */}
-      {isLoading && <Preloader />}
-      <header></header>
 
-      {!entrar ? (
-        <ComingSoonSection handleClick={() => setEntrar(true)}/>
-      ) : (
-        <>
-          {" "}
-          {/* MAIN SLIDER */}
-          <MainSlider />
-          {/* CONTENT SECTION */}
-          <section id="content">
-            <InfoSection />
-            <CoupleSection />
-            {/* <CountingDownSection /> */}
-              <WeddingSection />
-              <MoreInfoSection />
-            <RSVPSection />
-          </section>
-          <FooterSection />
-        </>
-      )}
-    </div>
+  return (
+    <BrowserRouter>
+      <div className="sb-site">
+        {/* PRELOADER */}
+        {isLoading && <Preloader />}
+        <header></header>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route
+            path="/"
+            element={<ComingSoonSection />}
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
