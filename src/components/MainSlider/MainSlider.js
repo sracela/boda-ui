@@ -111,21 +111,21 @@ useEffect(() => {
         <div
           className="slide-image"
           style={{
-            backgroundImage: "url('assets/images/banner-1.JPG')",
+            backgroundImage: "url('assets/images/formatted/banner-1.webp')",
           }}
         ></div>
 
         <div
           className="slide-image"
           style={{
-            backgroundImage: "url('assets/images/banner-2.JPG')",
+            backgroundImage: "url('assets/images/formatted/banner-2.webp')",
           }}
         ></div>
         <div
           id="image-3"
           className="slide-image"
           style={{
-            backgroundImage: "url('assets/images/banner-3.JPG')",
+            backgroundImage: "url('assets/images/formatted/banner-3.webp')",
           }}
         ></div>
       </Carousel>

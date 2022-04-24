@@ -26,7 +26,7 @@ function CoupleSection() {
             <div class="photo-item">
               {/* <!--HIS-PHOTO--> */}
               <img
-                src="assets/images/him.png"
+                src="assets/images/formatted/him.webp"
                 alt=""
                 class="hover-animation image-zoom-in"
               />
@@ -68,7 +68,7 @@ function CoupleSection() {
             <div class="photo-item">
               {/* <!--HER-PHOTO--> */}
               <img
-                src="assets/images/her.png"
+                src="assets/images/formatted/her.webp"
                 alt=""
                 class="hover-animation image-zoom-in"
               />
