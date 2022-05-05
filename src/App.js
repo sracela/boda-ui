@@ -10,6 +10,7 @@ import ComingSoonSection from "./components/ComingSoonSection/ComingSoonSection"
 import InfoSection from "./components/InfoSection/InfoSection";
 import MoreInfoSection from "./components/MoreInfoSection/MoreInfoSection";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AddPhotosSection from "./components/AddPhotosSection/AddPhotosSection";
 
 const Home = () => (
   <>
@@ -45,6 +46,7 @@ function App() {
         <header></header>
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/add-photos" element={<AddPhotosSection />} />
           <Route
             path="/"
             element={<ComingSoonSection />}

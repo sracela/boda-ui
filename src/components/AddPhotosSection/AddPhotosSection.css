@@ -1,0 +1,167 @@
+/* general styling */
+:root {
+  --smaller: 0.75;
+}
+
+/*===============================================*/
+/* 06. MAIN-SLIDER					 		 	 */
+/*===============================================*/
+#main-slider {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* ----------------------------------------------*/
+/* 06.1 Main Slider Height					     */
+/* ----------------------------------------------*/
+/* #main-slider.fullscreen - script.js			 */
+
+#main-slider.fixed-height {
+  position: relative;
+  height: 625px;
+}
+
+/* ----------------------------------------------*/
+/* 06.2 Main Slider Flexslider			  		 */
+/* ----------------------------------------------*/
+#main-slider.flexslider {
+  border: none;
+}
+
+#main-slider .slides,
+#main-slider.flexslider .slides li {
+  position: relative;
+  height: inherit;
+  width: 100%;
+  overflow: hidden;
+}
+
+#main-slider.flexslider .flex-viewport {
+  position: relative;
+  height: inherit;
+}
+
+/* 06.2.1 Main Slider Flexslider Control Nav & Paging */
+/* ----------------------------------------------*/
+#main-slider .flex-control-nav,
+.flex-control-paging {
+  background-color: transparent !important;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+}
+
+#main-slider.flexslider .flex-direction-nav .flex-prev {
+  left: 0px;
+}
+#main-slider.flexslider .flex-direction-nav .flex-next {
+  right: 0px;
+  text-align: right;
+}
+#main-slider.flexslider:hover .flex-prev {
+  opacity: 0.7;
+  left: 100px;
+}
+#main-slider.flexslider:hover .flex-next {
+  opacity: 0.7;
+  right: 100px;
+}
+
+#main-slider .flex-direction-nav a {
+  z-index: 4;
+  line-height: 40px;
+}
+
+/* ----------------------------------------------*/
+/* 06.5 Main Slider Title					     */
+/* ----------------------------------------------*/
+
+/* 06.5.1 Outter Wrapper */
+/* ----------------------------------------------*/
+.slide-title-coming-soon-outter-wrapper {
+  position: absolute;
+  width: 100%;
+  height: inherit;
+  left: 0;
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* 06.5.2 Inner Wrapper */
+/* ----------------------------------------------*/
+.slide-title-coming-soon-inner-wrapper {
+  width: 1170px;
+  height: inherit;
+  margin: 0 auto;
+  display: table;
+}
+
+@media screen and (max-width: 1200px) {
+  .slide-title-coming-soon-inner-wrapper {
+    width: 100%;
+  }
+}
+
+/* 06.5.3 Title Wrapper */
+/* ----------------------------------------------*/
+.slide-title-coming-soon {
+  display: table-cell;
+  text-align: center;
+  color: #035959;
+}
+
+.slide-title-coming-soon h1,
+.slide-title-coming-soon h2,
+.slide-title-coming-soon h3,
+.slide-title-coming-soon h4,
+.slide-title-coming-soon h5,
+.slide-title-coming-soon h6 {
+  color: #035959;
+}
+
+/* 06.5.4 Title Alignment */
+/* ----------------------------------------------*/
+.slide-title-coming-soon.align-middle {
+  vertical-align: middle;
+}
+.slide-title-coming-soon.align-top {
+  vertical-align: top;
+  /*padding-top:100px;*/
+}
+.slide-title-coming-soon.align-bottom {
+  vertical-align: bottom;
+  /*padding-bottom:0px;*/
+}
+
+/* 06.5.6 Save The Date Title */
+/* ----------------------------------------------*/
+#save-the-date {
+  font-family: "Pacifico", cursive;
+  -ms-transform: rotate(-10deg); /* IE 9 */
+  -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+  transform: rotate(-10deg);
+  padding-top: 100px;
+  padding-right: 50px;
+  margin-bottom: 20px;
+}
+
+#save {
+  font-size: 75px;
+  line-height: 50px;
+}
+
+#the-date {
+  font-size: 62px;
+}
+
+#date {
+  font-size: 47px;
+  line-height: 40px;
+}
+
+.pink-dot {
+  color: #035959;
+}
