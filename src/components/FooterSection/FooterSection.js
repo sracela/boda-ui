@@ -6,7 +6,7 @@ function FooterSection() {
     <footer>
       <div
         class="image-divider fixed-height"
-        style={{ backgroundImage: "url(assets/images/footer.JPG)" }}
+        style={{ backgroundImage: "url(assets/images/formatted/footer.webp)" }}
       >
         <div class="divider-overlay"></div>
 

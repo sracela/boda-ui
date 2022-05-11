@@ -115,7 +115,7 @@ function MoreInfoSection() {
                   <div class="photo-item">
                     {/* <!--PHOTO--> */}
                     <img
-                      src="assets/images/vegan.jpg"
+                      src="assets/images/formatted/vegan.webp"
                       alt=""
                       class="hover-animation image-zoom-in"
                       style={{maxHeight: '295px'}}
