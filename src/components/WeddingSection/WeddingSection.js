@@ -14,7 +14,7 @@ function WeddingSection() {
 
               <p class="blurb">
                 Aquí tienes toda la información que necesitas conocer para no
-                perdernos el evento del año. ¡Os esperamos!
+                perderos el evento del año. ¡Os esperamos!
               </p>
 
               <HeartDivider />
