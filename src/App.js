@@ -70,8 +70,11 @@ function App() {
           <header className="main-slide-header-mobile">
             <nav className="nav-header">
               <ul>
-                <li style={{
-  color: '#035959 !important'}}>
+                <li
+                  style={{
+                    color: "#035959 !important",
+                  }}
+                >
                   <Link to="/">INICIO</Link>
                 </li>
                 <li>
