@@ -1,6 +1,7 @@
 import "./ComingSoonSection.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 import GoogleSignInCustom from "../GoogleSignInCustom/GoogleSignInCustom";
+import { Link } from "react-router-dom";
 
 function ComingSoonSection({ handleClick }) {
   return (
@@ -36,6 +37,10 @@ function ComingSoonSection({ handleClick }) {
                   <div>
                     <GoogleSignInCustom />
                   </div>
+                  <br />
+                  <Link to="/sube-tus-fotos">
+                    <button>sube tus fotos</button>
+                  </Link>
                 </div>
               </div>
             </div>
