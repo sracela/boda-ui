@@ -57,6 +57,27 @@ const MyUploader = () => {
       onChangeStatus={handleChangeStatus}
       onSubmit={handleSubmit}
       accept="image/*,audio/*,video/*"
+      inputContent="+"
+      submitButtonContent="¡Muchas gracias!"
+      inputWithFilesContent="+ Añadir más fotos"
+      styles={{
+        dropzone: {
+          width: "300px",
+          borderRadius: "25%",
+          height: "300px",
+          padding: "16px",
+        },
+        inputLabel: {
+          color: "#035959",
+          fontSize: "2rem",
+        },
+        submitButton: {
+          background: "#035959",
+        },
+        inputLabelWithFiles: {
+          color: "#035959",
+        },
+      }}
     />
   );
 };
