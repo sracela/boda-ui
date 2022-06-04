@@ -26,7 +26,7 @@ const MyUploader = () => {
     const myRenamedFile = new File([file], newName);
 
     const res = await axios.get(
-      "http://localhost:8888/.netlify/functions/upload",
+      `${process.env.PUBLIC_UR}/.netlify/functions/upload`,
       {
         params: { filename: newName },
       }
