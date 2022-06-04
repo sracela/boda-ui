@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+aws --endpoint-url=http://localhost:4566 --profile localstack s3 ls
+aws --endpoint-url=http://localhost:4566 --profile localstack s3 ls s3://paula-local
+aws --endpoint-url=http://localhost:4566 --profile localstack s3 rm --recursive s3://paula-local/
+aws --endpoint-url=http://localhost:4566 s3api get-bucket-cors --bucket=app-local-media

@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    # image: localstack/localstack:0.12.10
+    #    ports:
+    #      - '4563-4599:4563-4599'
+    #      - '8055:8080'
+    #    environment:
+    #      - SERVICES=s3
+    #      - DEBUG=1
+    #      - DATA_DIR=/tmp/localstack/data
+    #      - AWS_ACCESS_KEY_ID=test
+    #      - AWS_SECRET_ACCESS_KEY=test
+    #    volumes:
+    #      - './.localstack:/tmp/localstack'
+    #      - '/var/run/docker.sock:/var/run/docker.sock'
+    network_mode: bridge
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - EDGE_PORT=4566
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - EXTRA_CORS_ALLOWED_ORIGINS=dev.paula.local
+      - S3_SKIP_SIGNATURE_VALIDATION=0
+    ports:
+      # - '4566-4583:4566-4583'
+      - "127.0.0.1:53:53"                # only required for Pro (DNS)
+      - "127.0.0.1:53:53/udp"            # only required for Pro (DNS)
+      - "127.0.0.1:443:443"              # only required for Pro (LocalStack HTTPS Edge Proxy)
+      - "127.0.0.1:4510-4559:4510-4559"  # external service port range
+      - "127.0.0.1:4566:4566"            # LocalStack Edge Proxy
+    volumes:
+      - "${TEMPDIR:-/tmp/localstack}:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    #      - './volumes/s3-storage/.init:/docker-entrypoint-initaws.d'
+    #      - './volumes/s3-storage/.localstack:/tmp/localstack'
+
+#  minio:
+#    image: 'minio/minio:latest'
+#    ports:
+#      - '9000:9000'
+#      - '9001:9001'
+#    volumes:
+#      - ./storage/minio:/data
+#    environment:
+#      MINIO_ROOT_USER: minioadmin
+#      MINIO_ROOT_PASSWORD: minioadmin
+#    command: server /data --console-address ":9001"
