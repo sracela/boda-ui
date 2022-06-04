@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import HeartDivider from "../HeartDivider/HeartDivider";
 import MyUploader from "./MyUploader";
 import { useEffect } from "react";
 import axios from "axios";
