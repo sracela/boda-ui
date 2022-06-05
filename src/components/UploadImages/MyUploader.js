@@ -17,7 +17,7 @@ const getDate = () => {
   }-${hour}-${minute}-${seconds}`;
 };
 
-const MyUploader = () => {
+const MyUploader = ({ onSuccess }) => {
   const [user] = useAuthState();
   // specify upload params and url for your files
   const getUploadParams = async ({ file, meta }) => {
@@ -43,6 +43,7 @@ const MyUploader = () => {
   // called every time a file's `status` changes
   const handleChangeStatus = ({ meta, file }, status) => {
     console.log(status, meta, file);
+    if (status === "done") onSuccess();
   };
 
   // receives array of files that are done uploading when submit button is clicked

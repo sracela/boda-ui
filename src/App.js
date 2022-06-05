@@ -17,6 +17,13 @@ import "react-tiny-fab/dist/styles.css";
 import { FaHeart } from "react-icons/fa";
 import UploadImages from "./components/UploadImages/UploadImages";
 
+//TODO:
+// 1. Clean upload-images code
+// 5. Add Nav from other branch
+// 2. Clean styles
+// 4. Add auth
+// 3. Try edge cases
+
 const Home = () => {
   const navigate = useNavigate();
   return (

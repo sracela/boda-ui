@@ -43,28 +43,47 @@ const handler = async function (event, context) {
     return base64;
   }
 
-  return listObjPromise
-    .then((data) => {
-      const response = Promise.all(
-        data.Contents.map(async (x) => {
-          console.log("x.Key", x.Key);
-          return await getObject("paula-test", x.Key);
-        })
-      )
-        .then((a) => {
-          return {
-            statusCode: 200,
-            body: JSON.stringify(a.map((b) => encode(b.Body))),
-          };
-        })
-        .catch((error) => {
-          return { statusCode: 500, body: error.toString() };
+  // var bucket = new AWS.S3({ params: { Bucket: "paula-test" } });
+  const response = await new Promise((resolve) => {
+    s3.listObjects(s3Params, function (error, data) {
+      if (error) {
+        // console.log(error);
+        resolve({ statusCode: 500, body: error.toString() });
+      } else {
+        // console.log(data);
+        resolve({
+          statusCode: 200,
+          body: JSON.stringify(data.Contents),
+          // body: "Hello World",
         });
-      return response;
-    })
-    .catch((error) => {
-      return { statusCode: 500, body: error.toString() };
+      }
     });
+  });
+
+  return response;
+
+  // return listObjPromise
+  //   .then((data) => {
+  //     const response = Promise.all(
+  //       data.Contents.map(async (x) => {
+  //         console.log("x.Key", x.Key);
+  //         return await getObject("paula-test", x.Key);
+  //       })
+  //     )
+  //       .then((a) => {
+  //         return {
+  //           statusCode: 200,
+  //           body: JSON.stringify(a.map((b) => encode(b.Body))),
+  //         };
+  //       })
+  //       .catch((error) => {
+  //         return { statusCode: 500, body: error.toString() };
+  //       });
+  //     return response;
+  //   })
+  //   .catch((error) => {
+  //     return { statusCode: 500, body: error.toString() };
+  //   });
 };
 
 module.exports = { handler };

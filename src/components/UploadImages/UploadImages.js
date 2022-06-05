@@ -9,18 +9,36 @@ function UploadImages() {
   //   console.log(values.files);
   //   values.files.map((f) => upload(f));
   // };
+  const [filenames, setFilenames] = useState([]);
   const [images, setImages] = useState([]);
-
-  const fetSignedUrl = async () => {
-    const res = await axios.get(".netlify/functions/list-images");
-    return res.data;
-  };
+  const [newIMGUploaded, setNewIMGUploaded] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetSignedUrl().then((data) => {
-      setImages([...data]);
-    });
+    const fetSignedUrl = async () => {
+      const res = await axios.get(".netlify/functions/list-images");
+      setFilenames(res.data.map((a) => a.Key));
+    };
+    fetSignedUrl();
   }, []);
+
+  useEffect(() => {
+    if (filenames.length > 0) {
+      const fetchImages = async (filenames) => {
+        setLoading(true);
+        const promises = await Promise.all(
+          filenames.map((filename) =>
+            axios.get(".netlify/functions/get-image", { params: { filename } })
+          )
+        );
+        setImages(
+          promises.map((p, idx) => ({ filename: filenames[idx], data: p.data }))
+        );
+        setLoading(false);
+      };
+      fetchImages(filenames);
+    }
+  }, [filenames]);
 
   return (
     <section style={{ height: "100vh", width: "100%" }}>
@@ -37,7 +55,7 @@ function UploadImages() {
         <div>
           <h1>Comparte tus fotos</h1>
           <div style={{ width: "100%", display: "flex" }}></div>
-          <MyUploader />
+          <MyUploader onSuccess={() => setNewIMGUploaded(!newIMGUploaded)} />
         </div>
         <div
           style={{
@@ -47,17 +65,25 @@ function UploadImages() {
             flexWrap: "wrap",
           }}
         >
-          {images.length !== 0 &&
+          {loading ? (
+            <div>loading images</div>
+          ) : (
+            images.length !== 0 &&
             images.map((image, idx) => (
-              <div style={{ maxWidth: "200px" }}>
-                <img
-                  key={`image-${idx}`}
-                  src={`data:image/jpeg;base64,${image}`}
-                  alt={"imagesdsadas"}
-                  style={{ maxWidth: "100%" }}
-                />
+              <div
+                style={{ maxWidth: "200px" }}
+                key={`image-${image.filename}-${idx}`}
+              >
+                {image.data !== "error" && (
+                  <img
+                    src={`data:image/jpeg;base64,${image.data}`}
+                    alt={"imagesdsadas"}
+                    style={{ maxWidth: "100%" }}
+                  />
+                )}
               </div>
-            ))}
+            ))
+          )}
         </div>
       </div>
       {/* </div>
