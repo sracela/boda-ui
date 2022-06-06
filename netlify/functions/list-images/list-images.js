@@ -16,6 +16,7 @@ const handler = async function (event, context) {
   const s3Params = {
     Bucket: "paula-test",
     Delimiter: "/",
+    Prefix: "tiny-",
   };
 
   // Create S3 service object

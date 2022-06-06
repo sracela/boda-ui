@@ -20,7 +20,7 @@ function UploadImages() {
       setFilenames(res.data.map((a) => a.Key));
     };
     fetSignedUrl();
-  }, []);
+  }, [newIMGUploaded]);
 
   useEffect(() => {
     if (filenames.length > 0) {
@@ -41,7 +41,7 @@ function UploadImages() {
   }, [filenames]);
 
   return (
-    <section style={{ height: "100vh", width: "100%" }}>
+    <section style={{ width: "100%" }}>
       <div
         style={{
           width: "100%",
@@ -52,6 +52,9 @@ function UploadImages() {
           gap: "100px",
         }}
       >
+        <div>
+          <canvas id="myCanvas" style={{ visibility: "hidden" }}></canvas>
+        </div>
         <div>
           <h1>Comparte tus fotos</h1>
           <div style={{ width: "100%", display: "flex" }}></div>
@@ -71,14 +74,23 @@ function UploadImages() {
             images.length !== 0 &&
             images.map((image, idx) => (
               <div
-                style={{ maxWidth: "200px" }}
+                style={{ width: "200px", height: "400px" }}
                 key={`image-${image.filename}-${idx}`}
               >
                 {image.data !== "error" && (
                   <img
                     src={`data:image/jpeg;base64,${image.data}`}
-                    alt={"imagesdsadas"}
-                    style={{ maxWidth: "100%" }}
+                    alt={image.filename}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      objectFit: "contain",
+                    }}
+                    // style={{
+                    //   maxWidth: "100%",
+                    //   maxHeight: "100%",
+                    //   height: "auto",
+                    // }}
                   />
                 )}
               </div>
