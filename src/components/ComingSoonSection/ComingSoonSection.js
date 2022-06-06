@@ -1,5 +1,6 @@
 import "./ComingSoonSection.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
+import GoogleSignInCustom from "../GoogleSignInCustom/GoogleSignInCustom";
 import { Link } from "react-router-dom";
 
 function ComingSoonSection({ handleClick }) {
@@ -34,20 +35,12 @@ function ComingSoonSection({ handleClick }) {
                     <h5 style={{ color: "#035959" }}>SARRIA, LUGO</h5>
                   </div>
                   <div>
-                    <Link to="/home">
-                      <span class="de-button medium animation fadeInUp">
-                        ENTRAR
-                      </span>
-                    </Link>
+                    <GoogleSignInCustom />
                   </div>
-
-                  {/* <div
-                      class="banner-text dark medium"
-                      style={{ letterSpacing: "3px" }}
-                    >
-                    SARRIA, LUGO
-                    </div> */}
-                  {/* <HeartDivider /> */}
+                  <br />
+                  <Link to="/sube-tus-fotos">
+                    <button>sube tus fotos</button>
+                  </Link>
                 </div>
               </div>
             </div>
