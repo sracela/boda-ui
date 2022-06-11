@@ -1,6 +1,6 @@
 .main-slide-header-mobile {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    position: sticky;
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 20;
@@ -10,6 +10,7 @@
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
+
 .main-slide-header {
     /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
     position: absolute;
@@ -18,7 +19,7 @@
     z-index: 10;
     width: 100%;
     color: white;
-  }
+}
 
 .nav-header {
     width: 80%;
@@ -35,15 +36,19 @@
     padding: 0;
 }
 
-.ul-header-mobile li a{
+.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+.ul-header-mobile li a {
     font-family: "Oswald", sans-serif;
     color: #035959
-
 }
-.ul-header li a{
+
+.ul-header li a {
     font-family: "Oswald", sans-serif;
     color: white
-
 }
 
 /* .nav-header ul li a {

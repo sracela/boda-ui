@@ -22,7 +22,7 @@ export const Nav = () => {
             <Link to="/la-musica">PON LA MÚSICA</Link>
           </li>
 
-          <li>
+          <li className="disabled">
             <Link to="/sube-tus-fotos">SUBE TUS FOTOS</Link>
           </li>
         </ul>
