@@ -1,9 +1,10 @@
 #add-your-music {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   padding: 140px 0 60px 0;
   background-color: #fff;
-  max-height: 100vh;
   height: 100%;
-  overflow: scroll;
 }
 
 .de-icon.aligncenter {
