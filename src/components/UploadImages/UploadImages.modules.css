@@ -1,0 +1,12 @@
+#upload-images {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 140px 0 60px 0;
+  background-color: #fff;
+  height: 100%;
+}
+
+.de-icon.aligncenter {
+  margin: 0 auto;
+}
