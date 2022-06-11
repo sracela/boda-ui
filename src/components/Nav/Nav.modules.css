@@ -1,0 +1,52 @@
+.main-slide-header-mobile {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    color: #035959 !important;
+    background: white;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.main-slide-header {
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    color: white;
+  }
+
+.nav-header {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav-header ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ul-header-mobile li a{
+    font-family: "Oswald", sans-serif;
+    color: #035959
+
+}
+.ul-header li a{
+    font-family: "Oswald", sans-serif;
+    color: white
+
+}
+
+/* .nav-header ul li a {
+    font-family: "Oswald", sans-serif;
+    color: white
+} */

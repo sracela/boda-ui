@@ -1,4 +1,4 @@
-import "./ComingSoonSection.css";
+import "./Login.modules.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 import { Link } from "react-router-dom";
 

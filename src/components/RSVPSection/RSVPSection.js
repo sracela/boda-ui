@@ -1,4 +1,4 @@
-import "./RSVPSection.css";
+import "./RSVPSection.modules.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 import { FaHeart } from "react-icons/fa";
 
@@ -21,27 +21,27 @@ function RSVPSection() {
           </div>
         </div>
         <div class="row">
-          <div class="col-md-offset-1 col-md-10" >
+          <div class="col-md-offset-1 col-md-10">
             <div class="col-md-offset-1 col-md-5">
               <div class="de-icon circle medium-size aligncenter">
-                 <FaHeart />
+                <FaHeart />
               </div>
-              <h3 style={{color: '#fff'}} class="text-center">Paula Hospido Castro</h3>
+              <h3 style={{ color: "#fff" }} class="text-center">
+                Paula Hospido Castro
+              </h3>
               <div class="blurb text-center">
-                <p>
-                610613738
-                </p>
+                <p>610613738</p>
               </div>
             </div>
             <div class="col-md-5">
               <div class="de-icon circle medium-size aligncenter">
-                 <FaHeart />
+                <FaHeart />
               </div>
-              <h3 style={{color: '#fff'}} class="text-center">Martín López López</h3>
+              <h3 style={{ color: "#fff" }} class="text-center">
+                Martín López López
+              </h3>
               <div class="blurb text-center">
-                <p>
-                  646181078
-                </p>
+                <p>646181078</p>
               </div>
             </div>
           </div>

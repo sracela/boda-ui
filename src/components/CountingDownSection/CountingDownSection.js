@@ -1,4 +1,4 @@
-import "./CountingDownSection.css";
+import "./CountingDownSection.modules.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 import { useEffect, useState } from "react";
 
@@ -18,7 +18,7 @@ function CountingDownSection() {
     }, 1000);
     return () => clearInterval(intervalID);
   }, [countDown]);
-  
+
   return (
     <section id="location-countdown">
       <div
@@ -37,7 +37,7 @@ function CountingDownSection() {
               </div>
 
               <HeartDivider isWhite />
-              <div id="countdown" >
+              <div id="countdown">
                 <div id="countdownLi">
                   <span id="days">{Math.floor(distance / day)}</span>D
                 </div>

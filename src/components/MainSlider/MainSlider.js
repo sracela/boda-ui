@@ -1,5 +1,5 @@
 // import "./flexslider.css";
-import "./MainSlider.css";
+import "./MainSlider.modules.css";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
 import HeartDivider from "../HeartDivider/HeartDivider";

@@ -1,4 +1,4 @@
-import "./CoupleSection.css";
+import "./CoupleSection.modules.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 
 function CoupleSection() {
@@ -60,7 +60,10 @@ function CoupleSection() {
             </div>
             {/* <!--END of PHOTO-ITEM--> */}
 
-            <p class="couple-excerpt" style={{visibility: 'hidden'}}>Depués de tantos años de complicidad, apoyo incondicional y sobretodo mucho amor, hemos decidido dar el paso.</p>
+            <p class="couple-excerpt" style={{ visibility: "hidden" }}>
+              Depués de tantos años de complicidad, apoyo incondicional y
+              sobretodo mucho amor, hemos decidido dar el paso.
+            </p>
           </div>
 
           <div class="col-md-5">
@@ -82,12 +85,10 @@ function CoupleSection() {
                 <div class="alignment">
                   <div class="v-align center-bottom">
                     <div>
-                      
                       <div
                         class="banner-text light small"
                         style={{ letterSpacing: "3px" }}
                       >
-                        
                         <h4>LA NOVIA</h4>
                         <h4>PAULA HOSPIDO CASTRO</h4>
                       </div>
@@ -105,8 +106,13 @@ function CoupleSection() {
             </div>
             {/* <!--END of PHOTO-ITEM-->   */}
 
-            <p class="couple-excerpt animation fadeInRight" style={{visibility: 'hidden'}}>
-              A continuación de contamos todo lo que necesitas saber. Pero además si necesitas contactarnos directamente, abajo de todo tienes nuestros teléfonos.
+            <p
+              class="couple-excerpt animation fadeInRight"
+              style={{ visibility: "hidden" }}
+            >
+              A continuación de contamos todo lo que necesitas saber. Pero
+              además si necesitas contactarnos directamente, abajo de todo
+              tienes nuestros teléfonos.
             </p>
           </div>
         </div>
