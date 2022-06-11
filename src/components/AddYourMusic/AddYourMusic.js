@@ -1,15 +1,19 @@
 import "./AddYourMusic.modules.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 import Button from "../Button/Button";
+import Nav from "../Nav/Nav";
+import { useMediaQuery } from "react-responsive";
+import { IS_MOBILE_MAX_WIDTH } from "../../utils/common";
 
 function AddYourMusic() {
+  const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
   return (
     <section id="add-your-music">
-      <div class="container">
-        <div class="row">
-          {/* <!-- SECTION TITLE --> */}
-          <div class="col-md-12 text-center ">
-            <div class="section-title animation fadeInUp">
+      {!isMobile && <Nav isDefault />}
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <div className="section-title animation fadeInUp">
               <HeartDivider />
               <h2>¿QUIERES SER EL DJ DE LA BODA?</h2>
               <p>
@@ -33,6 +37,7 @@ function AddYourMusic() {
           </div>
         </div>
       </div>
+      {isMobile && <Nav />}
     </section>
   );
 }

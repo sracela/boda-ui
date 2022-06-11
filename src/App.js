@@ -15,35 +15,37 @@ import Nav from "./components/Nav/Nav";
 import { IS_MOBILE_MAX_WIDTH } from "./utils/common";
 import AddYourMusic from "./components/AddYourMusic/AddYourMusic";
 
-const Home = () => (
-  <>
-    <MainSlider />
-    <InfoSection />
-    <CoupleSection />
-    <RSVPSection />
-    {/* <section id="content">
+const Home = () => {
+  const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
+  return (
+    <>
+      {!isMobile && <Nav />}
+      <MainSlider />
       <InfoSection />
       <CoupleSection />
+      <RSVPSection />
+      <FooterSection />
+      {isMobile && <Nav />}
+    </>
+  );
+};
+
+const LaBoda = () => {
+  const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
+  return (
+    <>
+      {!isMobile && <Nav isDefault />}
       <WeddingSection />
       <MoreInfoSection />
       <RSVPSection />
-    </section> */}
-    <FooterSection />
-  </>
-);
-
-const LaBoda = () => (
-  <>
-    <WeddingSection />
-    <MoreInfoSection />
-    <RSVPSection />
-    <FooterSection />
-  </>
-);
+      <FooterSection />
+      {isMobile && <Nav />}
+    </>
+  );
+};
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
 
   useEffect(() => {
     setTimeout(() => {
@@ -54,14 +56,12 @@ function App() {
   return (
     <div id="sb-site">
       {isLoading && <Preloader />}
-      {!isMobile && <Nav />}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/la-boda" element={<LaBoda />} />
         <Route path="/la-musica" element={<AddYourMusic />} />
         <Route path="/home" element={<Home />} />
       </Routes>
-      {isMobile && <Nav />}
     </div>
   );
 }
