@@ -2,13 +2,11 @@
 /* ----------------------------------------------*/
 /* 12.3 The Wedding Section			 			 */
 /* ----------------------------------------------*/
-#the-wedding{
-	padding:140px 0 140px 0;
+#the-wedding-info{
+	padding:140px 0 0 0;
 	min-height: 800px;
-  background-color: #fff;
 }
-
-#the-wedding h4{
+#the-wedding-info h4{
 	font-size:17px;
 }
 

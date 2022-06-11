@@ -1,0 +1,76 @@
+/* 07.2.10 BUTTON					 			 */
+/* ----------------------------------------------*/
+.de-button,
+span.de-button,
+input[type=submit] {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #035959;
+    font-family: 'Oswald', sans-serif;
+    border: solid 1px #6a6a6a;
+    color: #FFF;
+    border-radius: 6px;
+}
+
+a.de-button.outline,
+span.de-button.outline,
+input[type=submit].outline {
+    background-color: transparent;
+    border: solid 1px #FFF;
+    color: #FFF;
+}
+
+a.de-button.reverse,
+span.de-button.reverse,
+input[type=submit].reverse {
+    background-color: #035959;
+    border: solid 1px #035959;
+    color: #FFF;
+}
+
+.de-button.small,
+span.de-button.small,
+input[type=submit].small {
+    padding: 8px 26px;
+    font-size: 14px;
+}
+
+.de-button.medium,
+span.de-button.medium,
+input[type=submit].medium {
+    padding: 12px 50px;
+    font-size: 16px;
+}
+
+.de-button.large,
+span.de-button.large,
+input[type=submit].large {
+    padding: 14px 70px;
+    font-size: 20px;
+}
+
+.de-button:hover,
+input[type=submit]:hover {
+    background-color: #035959;
+    border-color: #035959;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.de-button.reverse:hover,
+input[type=submit].reverse:hover {
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #6a6a6a;
+    text-decoration: none;
+    border: solid 1px #6a6a6a
+}
+
+input[type=submit]:disabled,
+input[type=submit]:hover:disabled {
+    background-color: #CCC !important;
+    border: solid 1px #CCC !important;
+    color: #FFF !important;
+    ;
+}

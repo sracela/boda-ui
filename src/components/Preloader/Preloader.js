@@ -1,15 +1,15 @@
-import "./Preloader.css";
+import "./Preloader.modules.css";
 import { FaHeart } from "react-icons/fa";
 
 function Preloader() {
   return (
     <div id="preloader">
-      <div class="alignment">
-        <div class="v-align center-middle">
-          <div class="heart-animation">
+      <div className="alignment">
+        <div className="v-align center-middle">
+          <div className="heart-animation">
             <FaHeart />
           </div>
-          <div class="heart-animation-reverse">
+          <div className="heart-animation-reverse">
             <FaHeart />
           </div>
         </div>

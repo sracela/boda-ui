@@ -1,4 +1,4 @@
-import "./FooterSection.css";
+import "./FooterSection.modules.css";
 import HeartDivider from "../HeartDivider/HeartDivider";
 
 function FooterSection() {
