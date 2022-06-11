@@ -13,7 +13,7 @@ export const Nav = () => {
       <nav className="nav-header">
         <ul className={isMobile ? "ul-header-mobile" : "ul-header"}>
           <li>
-            <Link to="/">INICIO</Link>
+            <Link to="/home">INICIO</Link>
           </li>
           <li>
             <Link to="/la-boda">LA BODA</Link>

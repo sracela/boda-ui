@@ -56,10 +56,10 @@ function App() {
       {isLoading && <Preloader />}
       {!isMobile && <Nav />}
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/la-boda" element={<LaBoda />} />
         <Route path="/la-musica" element={<AddYourMusic />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
       {isMobile && <Nav />}
     </div>

@@ -38,7 +38,7 @@ function ComingSoonSection({ handleClick }) {
                     <h5 style={{ color: "#035959" }}>SARRIA, LUGO</h5>
                   </div>
                   <div>
-                    <Link to="/">
+                    <Link to="/home">
                       <span className="de-button medium animation fadeInUp">
                         ENTRAR
                       </span>
