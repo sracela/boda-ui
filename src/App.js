@@ -61,7 +61,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/la-boda" element={<LaBoda />} />
         <Route path="/la-musica" element={<AddYourMusic />} />
-        <Route path="/sube-tus-fotos" element={<UploadImages />} />
+        {/* <Route path="/sube-tus-fotos" element={<UploadImages />} /> */}
         <Route path="/home" element={<Home />} />
       </Routes>
     </div>

@@ -41,8 +41,7 @@ export const Nav = ({ isDefault }) => {
             </Link>
           </li>
 
-          {/* <li className="disabled"> */}
-          <li>
+          <li className="disabled">
             <Link to="/sube-tus-fotos">
               <FiCamera />
               <span className={`icon-text ${isMobile ? "large-text" : ""}`}>
