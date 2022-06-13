@@ -29,7 +29,7 @@ function AddYourMusic() {
                 lista de Spotify.
               </p>
               <div>
-                <Button link="https://open.spotify.com/playlist/6KTKFm9k8nLLy3L1zqN81n?si=23e2997407514bed&pt=567ce5a7cb9521eaef9318a3f6149988">
+                <Button link="https://open.spotify.com/playlist/6KTKFm9k8nLLy3L1zqN81n?si=3a339649830349ae&pt=54b0046cc5480299bb4e1953f408178f">
                   ¡HAZ CLICK Y COMPÁRTENOS TUS CANCIONES!
                 </Button>
               </div>
