@@ -18,9 +18,8 @@
 }
 
 input {
-
   all: unset;
-  max-width: 100%;
+  width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,4 +38,9 @@ input {
     /* '&:focus': {
     boxShadow: `0 0 0 2px black`
   } */
+}
+
+.inverted {
+  background-color: white !important;
+  color: #035959 !important;
 }

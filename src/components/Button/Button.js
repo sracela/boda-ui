@@ -6,7 +6,7 @@ function Button({ children, link, type, isDefault, isDisabled, onClick }) {
       <button
         onClick={onClick}
         disabled={isDisabled}
-        className={isDisabled ? "disabled" : ""}
+        className={`defaultButton ${isDisabled ? "disabled" : ""}`}
       >
         {children}
       </button>
