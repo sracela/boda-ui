@@ -32,7 +32,10 @@ function UploadImages() {
                 cada uno.
               </p>
               <div>
-                <Button link="https://drive.google.com/drive/folders/1QCDH0nZhDuM0JafhHj6tmgIAdrpBpz_M?usp=sharing">
+                {/* <Button link="https://drive.google.com/drive/folders/1QCDH0nZhDuM0JafhHj6tmgIAdrpBpz_M?usp=sharing">
+                  ¡HAZ CLICK Y COMPÁRTENOS TUS FOTOS!
+                </Button> */}
+                <Button isDefault onClick={() => null}>
                   ¡HAZ CLICK Y COMPÁRTENOS TUS FOTOS!
                 </Button>
               </div>
