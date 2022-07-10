@@ -44,14 +44,6 @@ function ComingSoonSection({ handleClick }) {
                       </span>
                     </Link>
                   </div>
-
-                  {/* <div
-                      class="banner-text dark medium"
-                      style={{ letterSpacing: "3px" }}
-                    >
-                    SARRIA, LUGO
-                    </div> */}
-                  {/* <HeartDivider /> */}
                 </div>
               </div>
             </div>

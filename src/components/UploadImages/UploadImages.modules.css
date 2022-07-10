@@ -10,3 +10,33 @@
 .de-icon.aligncenter {
   margin: 0 auto;
 }
+
+.label {
+  font-size: 15;
+  font-weight: 500;
+  user-select: none;
+}
+
+input {
+
+  all: unset;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0px 10px;
+  height: 35px;
+  font-size: 15px;
+  line-height: 1;
+  background-color: rgba(0, 0, 0, 0.09);
+  box-shadow: rgba(99, 99, 99, 0.44) 0px 0px 0px 1px;
+  color: #434343
+    /* background-color: blackA.blackA5; */
+    /* boxShadow: `0 0 0 1px $ {
+    blackA.blackA9
+  } */
+    /* '&:focus': {
+    boxShadow: `0 0 0 2px black`
+  } */
+}
