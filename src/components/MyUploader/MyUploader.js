@@ -8,18 +8,18 @@ import HeartDivider from "../HeartDivider/HeartDivider";
 import { useNavigate } from "react-router-dom";
 
 // get date in format YYYY-MM-DD
-const getDate = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const hour = date.getHours();
-  const minute = date.getMinutes();
-  const seconds = date.getSeconds();
-  return `${year}-${month < 10 ? `0${month}` : month}-${
-    day < 10 ? `0${day}` : day
-  }-${hour}-${minute}-${seconds}`;
-};
+// const getDate = () => {
+//   const date = new Date();
+//   const year = date.getFullYear();
+//   const month = date.getMonth() + 1;
+//   const day = date.getDate();
+//   const hour = date.getHours();
+//   const minute = date.getMinutes();
+//   const seconds = date.getSeconds();
+//   return `${year}-${month < 10 ? `0${month}` : month}-${
+//     day < 10 ? `0${day}` : day
+//   }-${hour}-${minute}-${seconds}`;
+// };
 
 const MyUploader = ({ onSuccess }) => {
   const username = localStorage.getItem("username");
