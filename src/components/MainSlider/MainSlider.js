@@ -115,21 +115,28 @@ function MainSlider() {
           <div
             className="slide-image"
             style={{
-              backgroundImage: "url('assets/images/formatted/banner-1.webp')",
+              backgroundImage: "url('assets/images/formatted/banner-1.jpg')",
             }}
           ></div>
 
           <div
             className="slide-image"
             style={{
-              backgroundImage: "url('assets/images/formatted/banner-2.webp')",
+              backgroundImage: "url('assets/images/formatted/banner-2.jpg')",
             }}
           ></div>
           <div
             id="image-3"
             className="slide-image"
             style={{
-              backgroundImage: "url('assets/images/formatted/banner-3.webp')",
+              backgroundImage: "url('assets/images/formatted/banner-3.jpg')",
+            }}
+          ></div>
+          <div
+            id="image-4"
+            className="slide-image"
+            style={{
+              backgroundImage: "url('assets/images/formatted/banner-4.jpg')",
             }}
           ></div>
         </Carousel>
