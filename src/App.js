@@ -17,6 +17,7 @@ import AddYourMusic from "./components/AddYourMusic/AddYourMusic";
 import UploadImages from "./components/UploadImages/UploadImages";
 import MyUploader from "./components/MyUploader/MyUploader";
 import Gallery from "./components/Gallery/Gallery";
+import ImgView from "./components/ImgView/ImgView";
 
 const Home = () => {
   const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
@@ -63,6 +64,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/la-boda" element={<LaBoda />} />
         <Route path="/la-musica" element={<AddYourMusic />} />
+        <Route path="/galeria/:imgId" element={<ImgView />} />
         <Route path="/galeria" element={<Gallery />} />
         <Route path="/sube-tus-fotos/subir" element={<MyUploader />} />
         <Route path="/sube-tus-fotos" element={<UploadImages />} />
