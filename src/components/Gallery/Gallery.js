@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useMediaQuery } from "react-responsive";
@@ -6,13 +6,16 @@ import { IS_MOBILE_MAX_WIDTH } from "../../utils/common";
 import Nav from "../Nav/Nav";
 import HeartDivider from "../HeartDivider/HeartDivider";
 import { Link, Outlet } from "react-router-dom";
+import { useInfiniteScroll } from "../../utils/hooks";
 
 import { useQuery } from "@tanstack/react-query";
 
 function Gallery() {
   const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
   const [filenames, setFilenames] = useState([]);
+  const [filenamesToFetch, setFilenamesToFetch] = useState([]);
   const [images, setImages] = useState([]);
+  const filenameIndex = useRef();
 
   const fetchImages = async (filenames) => {
     try {
@@ -33,30 +36,55 @@ function Gallery() {
   };
 
   const getImagesQuery = useQuery(
-    ["images", filenames],
-    () => fetchImages(filenames),
+    ["images", filenamesToFetch],
+    () => fetchImages(filenamesToFetch),
     {
-      // The query will not execute until the filenames > 0
-      enabled: filenames.length > 0,
+      // The query will not execute until the filenamesToFetch > 0
+      enabled: filenamesToFetch.length > 0,
     }
   );
   const getFilenamesQuery = useQuery(["filenames"], fetSignedUrl);
 
+  const hasMore = () => {
+    if (filenameIndex.current === undefined) return true;
+    return filenameIndex.current < filenames.length;
+  };
+
+  const handleFetchMore = () => {
+    if (getImagesQuery.isLoading) return;
+    setFilenamesToFetch(
+      filenames.slice(filenameIndex.current, filenameIndex.current + 20)
+    );
+    filenameIndex.current += 20;
+  };
+
+  useInfiniteScroll({
+    loading: getImagesQuery.isLoading,
+    handleLoad: handleFetchMore,
+    hasMore: hasMore(),
+  });
+
   useEffect(() => {
     if (getImagesQuery.isSuccess && getImagesQuery.data?.length > 0) {
-      setImages(
-        getImagesQuery.data.map((p, idx) => ({
-          filename: filenames[idx],
-          data: p.data,
-        }))
-      );
+      const tempImages = getImagesQuery.data.map((p, idx) => ({
+        filename:
+          filenameIndex.current !== 20
+            ? filenames[filenameIndex.current - 20 + idx]
+            : filenames[idx],
+        data: p.data,
+      }));
+      setImages([...images, ...tempImages]);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getImagesQuery.isSuccess]);
 
   useEffect(() => {
     if (getFilenamesQuery.isSuccess && getFilenamesQuery.data.data) {
-      setFilenames(getFilenamesQuery.data.data.map((a) => a.Key));
+      const tempFilenames = getFilenamesQuery.data.data.map((a) => a.Key);
+      setFilenames(tempFilenames);
+      setFilenamesToFetch(tempFilenames.slice(0, 20));
+      filenameIndex.current = 20;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getFilenamesQuery.isSuccess]);
@@ -90,46 +118,42 @@ function Gallery() {
               <div
                 style={{
                   width: "100%",
-                  // display: "flex",
-                  // gap: "24px",
-                  // flexWrap: "wrap",
                   display: "grid",
                   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                   gap: "0.5rem",
-                  // padding: "0.5rem",
                 }}
               >
-                {!getImagesQuery.isSuccess ? (
-                  <div>Cargando...</div>
-                ) : (
-                  images.length !== 0 &&
-                  images.map(
-                    (image, idx) =>
-                      image.data !== "error" && (
-                        <Link
-                          to={"image-view"}
-                          state={{
-                            filename: image.filename.split("thumbnails/").pop(),
-                          }}
-                          key={image.filename.split("thumbnails/").pop()}
+                {images.length !== 0 &&
+                  images.map((image, idx) => {
+                    return image.data !== "error" ? (
+                      <Link
+                        to={"image-view"}
+                        state={{
+                          filename: image.filename.split("thumbnails/").pop(),
+                        }}
+                        key={`${image.filename
+                          .split("thumbnails/")
+                          .pop()}-${idx}}`}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img
+                          src={`data:image/jpeg;base64,${image.data}`}
+                          alt={image.filename.split("thumbnails/").pop()}
                           style={{
-                            display: "flex",
-                            alignItems: "center",
+                            width: "100%",
+                            height: "160px",
+                            objectFit: "cover",
                           }}
-                        >
-                          <img
-                            src={`data:image/jpeg;base64,${image.data}`}
-                            alt={image.filename.split("thumbnails/").pop()}
-                            style={{
-                              width: "100%",
-                              height: "160px",
-                              objectFit: "cover",
-                            }}
-                          />
-                        </Link>
-                      )
-                  )
-                )}
+                        />
+                      </Link>
+                    ) : (
+                      <p>Error</p>
+                    );
+                  })}
+                {getImagesQuery.isLoading && <p>Cargando...</p>}
               </div>
             </div>
           </div>

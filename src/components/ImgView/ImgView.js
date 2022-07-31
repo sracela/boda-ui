@@ -13,6 +13,7 @@ function ImgView() {
   const [image, setImage] = useState([]);
   const { state } = useLocation();
   const navigate = useNavigate();
+  console.log("filename", state.filename);
 
   const getImage = async (filename) => {
     return await axios.get("/.netlify/functions/get-image", {
@@ -118,7 +119,7 @@ function ImgView() {
                   }}
                   onClick={() => navigate("/galeria")}
                 >
-                  <FaTimes size={26} />
+                  <FaTimes size={26} color="black" />
                 </div>
                 {/* <h3>Name: {imgId}</h3> */}
               </div>
