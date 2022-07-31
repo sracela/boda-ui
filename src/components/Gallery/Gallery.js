@@ -52,7 +52,7 @@ function Gallery() {
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getImagesQuery]);
+  }, [getImagesQuery.isSuccess]);
 
   useEffect(() => {
     if (getFilenamesQuery.isSuccess && getFilenamesQuery.data.data) {
@@ -62,10 +62,10 @@ function Gallery() {
   }, [getFilenamesQuery.isSuccess]);
 
   return (
-    <section id="gallery" style={{ marginBottom: "54px" }}>
+    <section id="gallery">
       {!isMobile && <Nav isDefault />}
 
-      <div className="container">
+      <div className="container" style={{ marginBottom: "54px" }}>
         <div className="row">
           <div className="col-md-12 text-center">
             <div className="section-title animation fadeInUp"></div>
@@ -84,34 +84,37 @@ function Gallery() {
                 justifyContent: "center",
                 textAlign: "center",
                 gap: "100px",
+                marginBottom: "0.5rem",
               }}
             >
               <div
                 style={{
                   width: "100%",
-                  display: "flex",
-                  gap: "24px",
-                  flexWrap: "wrap",
+                  // display: "flex",
+                  // gap: "24px",
+                  // flexWrap: "wrap",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                  gap: "0.5rem",
+                  // padding: "0.5rem",
                 }}
               >
                 {!getImagesQuery.isSuccess ? (
                   <div>Cargando...</div>
                 ) : (
                   images.length !== 0 &&
-                  images.map((image, idx) => (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        cursor: "pointer",
-                      }}
-                      key={`image-${image.filename.split("/")[1]}-${idx}`}
-                    >
-                      {image.data !== "error" && (
+                  images.map(
+                    (image, idx) =>
+                      image.data !== "error" && (
                         <Link
                           to={"image-view"}
                           state={{
                             filename: image.filename.split("thumbnails/").pop(),
+                          }}
+                          key={image.filename.split("thumbnails/").pop()}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
                           }}
                         >
                           <img
@@ -119,14 +122,13 @@ function Gallery() {
                             alt={image.filename.split("thumbnails/").pop()}
                             style={{
                               width: "100%",
-                              height: "auto",
-                              objectFit: "contain",
+                              height: "160px",
+                              objectFit: "cover",
                             }}
                           />
                         </Link>
-                      )}
-                    </div>
-                  ))
+                      )
+                  )
                 )}
               </div>
             </div>

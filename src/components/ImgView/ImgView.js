@@ -27,7 +27,15 @@ function ImgView() {
   }, []);
 
   return (
-    <section id="gallery" style={{ marginBottom: "54px", background: "black" }}>
+    <section
+      id="gallery"
+      style={{
+        background: "black",
+        display: "grid",
+        placeItems: "center",
+        height: "90vh",
+      }}
+    >
       {!isMobile && <Nav isDefault />}
       <div className="container">
         <div className="row">
@@ -74,26 +82,27 @@ function ImgView() {
                         objectFit: "contain",
                       }}
                     />
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        right: 0,
-                        zIndex: 10,
-                        padding: "8px",
-                        margin: "8px",
-                        background: "#FFFFFF70",
-                        borderRadius: "25%",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                      onClick={() => navigate("/galeria")}
-                    >
-                      <FaTimes size={26} />
-                    </div>
                   </>
                 )}
+
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    right: 0,
+                    zIndex: 10,
+                    padding: "8px",
+                    margin: "8px",
+                    background: "#FFFFFF70",
+                    borderRadius: "25%",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                  onClick={() => navigate("/galeria")}
+                >
+                  <FaTimes size={26} />
+                </div>
                 {/* <h3>Name: {imgId}</h3> */}
               </div>
             </div>
