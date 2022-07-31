@@ -47,8 +47,8 @@ const MyUploader = ({ onSuccess }) => {
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
 
-        var MAX_WIDTH = 300;
-        var MAX_HEIGHT = 300;
+        var MAX_WIDTH = 160;
+        var MAX_HEIGHT = 160;
         var width = img.width;
         var height = img.height;
 

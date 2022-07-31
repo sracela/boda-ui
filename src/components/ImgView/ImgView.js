@@ -6,25 +6,30 @@ import { IS_MOBILE_MAX_WIDTH } from "../../utils/common";
 import Nav from "../Nav/Nav";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
 
 function ImgView() {
   const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
   const [image, setImage] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { state } = useLocation();
   const navigate = useNavigate();
 
+  const getImage = async (filename) => {
+    return await axios.get("/.netlify/functions/get-image", {
+      params: { filename },
+    });
+  };
+
+  const getImageQuery = useQuery(["getImage", state.filename], () =>
+    getImage(state.filename)
+  );
+
   useEffect(() => {
-    const getImage = async () => {
-      const res = await axios.get("/.netlify/functions/get-image", {
-        params: { filename: state.filename },
-      });
-      setImage(res);
-      setLoading(false);
-    };
-    getImage();
+    if (getImageQuery.isSuccess && getImageQuery.data) {
+      setImage(getImageQuery.data);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [getImageQuery.isSuccess]);
 
   return (
     <section
@@ -33,7 +38,7 @@ function ImgView() {
         background: "black",
         display: "grid",
         placeItems: "center",
-        height: "90vh",
+        height: isMobile ? "90vh" : "100%",
       }}
     >
       {!isMobile && <Nav isDefault />}
@@ -59,7 +64,7 @@ function ImgView() {
                   position: "relative",
                 }}
               >
-                {loading ? (
+                {getImageQuery.isError ? (
                   <div
                     style={{
                       width: "100%",
@@ -69,9 +74,9 @@ function ImgView() {
                       placeContent: "center",
                     }}
                   >
-                    <p>Cargando...</p>
+                    <p>Ups! No se puede cargar esta imagen...</p>
                   </div>
-                ) : (
+                ) : getImageQuery.isSuccess ? (
                   <>
                     <img
                       src={`data:image/jpeg;base64,${image.data}`}
@@ -83,12 +88,24 @@ function ImgView() {
                       }}
                     />
                   </>
+                ) : (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100vh",
+                      color: "white",
+                      display: "grid",
+                      placeContent: "center",
+                    }}
+                  >
+                    <p>Cargando...</p>
+                  </div>
                 )}
 
                 <div
                   style={{
                     position: "absolute",
-                    top: 0,
+                    top: isMobile ? 0 : "100px",
                     right: 0,
                     zIndex: 10,
                     padding: "8px",
