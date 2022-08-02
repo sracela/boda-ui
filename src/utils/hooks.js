@@ -38,12 +38,9 @@ export function useInfiniteScroll({ loading, hasMore, handleLoad }) {
 
     const scrollHeight =
       document.body.scrollHeight || document.documentElement.scrollHeight;
+    const margin = scrollHeight - window.screen.height - 80;
 
-    if (
-      winScroll >= scrollHeight - (window.screen.height - 100) &&
-      hasMore &&
-      !loading
-    ) {
+    if (winScroll >= margin && hasMore && !loading) {
       handleLoad();
     }
   }

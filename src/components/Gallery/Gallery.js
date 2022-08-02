@@ -5,17 +5,22 @@ import { useMediaQuery } from "react-responsive";
 import { IS_MOBILE_MAX_WIDTH } from "../../utils/common";
 import Nav from "../Nav/Nav";
 import HeartDivider from "../HeartDivider/HeartDivider";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useInfiniteScroll } from "../../utils/hooks";
 
 import { useQuery } from "@tanstack/react-query";
+import ReactLoading from "react-loading";
+import ImgView from "../ImgView/ImgView";
+
+const IMAGE_NUMBER = 18;
 
 function Gallery() {
   const isMobile = useMediaQuery(IS_MOBILE_MAX_WIDTH);
+  const [imageUrl, setImageUrl] = useState("");
   const [filenames, setFilenames] = useState([]);
   const [filenamesToFetch, setFilenamesToFetch] = useState([]);
   const [images, setImages] = useState([]);
-  const filenameIndex = useRef();
+  const filenameIndex = useRef(undefined);
 
   const fetchImages = async (filenames) => {
     try {
@@ -43,6 +48,7 @@ function Gallery() {
       enabled: filenamesToFetch.length > 0,
     }
   );
+
   const getFilenamesQuery = useQuery(["filenames"], fetSignedUrl);
 
   const hasMore = () => {
@@ -51,15 +57,18 @@ function Gallery() {
   };
 
   const handleFetchMore = () => {
-    if (getImagesQuery.isLoading) return;
+    if (getImagesQuery.isLoading || getFilenamesQuery.isLoading) return;
     setFilenamesToFetch(
-      filenames.slice(filenameIndex.current, filenameIndex.current + 20)
+      filenames.slice(
+        filenameIndex.current,
+        filenameIndex.current + IMAGE_NUMBER
+      )
     );
-    filenameIndex.current += 20;
+    filenameIndex.current += IMAGE_NUMBER;
   };
 
   useInfiniteScroll({
-    loading: getImagesQuery.isLoading,
+    loading: getImagesQuery.isLoading || getFilenamesQuery.isLoading,
     handleLoad: handleFetchMore,
     hasMore: hasMore(),
   });
@@ -68,8 +77,8 @@ function Gallery() {
     if (getImagesQuery.isSuccess && getImagesQuery.data?.length > 0) {
       const tempImages = getImagesQuery.data.map((p, idx) => ({
         filename:
-          filenameIndex.current !== 20
-            ? filenames[filenameIndex.current - 20 + idx]
+          filenameIndex.current !== IMAGE_NUMBER
+            ? filenames[filenameIndex.current - IMAGE_NUMBER + idx]
             : filenames[idx],
         data: p.data,
       }));
@@ -83,11 +92,24 @@ function Gallery() {
     if (getFilenamesQuery.isSuccess && getFilenamesQuery.data.data) {
       const tempFilenames = getFilenamesQuery.data.data.map((a) => a.Key);
       setFilenames(tempFilenames);
-      setFilenamesToFetch(tempFilenames.slice(0, 20));
-      filenameIndex.current = 20;
+      if (filenameIndex.current === undefined) {
+        setFilenamesToFetch(tempFilenames.slice(0, IMAGE_NUMBER));
+        filenameIndex.current = IMAGE_NUMBER;
+      } else {
+        setFilenamesToFetch(
+          filenames.slice(
+            filenameIndex.current,
+            filenameIndex.current + IMAGE_NUMBER
+          )
+        );
+        filenameIndex.current += IMAGE_NUMBER;
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getFilenamesQuery.isSuccess]);
+
+  if (imageUrl)
+    return <ImgView imageUrl={imageUrl} onCancel={() => setImageUrl("")} />;
 
   return (
     <section id="gallery">
@@ -121,16 +143,24 @@ function Gallery() {
                   display: "grid",
                   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                   gap: "0.5rem",
+                  marginBottom: "4rem",
                 }}
               >
                 {images.length !== 0 &&
                   images.map((image, idx) => {
                     return image.data !== "error" ? (
-                      <Link
-                        to={"image-view"}
-                        state={{
-                          filename: image.filename.split("thumbnails/").pop(),
-                        }}
+                      <div
+                        // to={"image-view"}
+                        // state={{
+                        //   filename: image.filename.split("thumbnails/").pop(),
+                        // }}
+                        onClick={() =>
+                          setImageUrl(
+                            `https://paula-test.s3.us-east-2.amazonaws.com/${image.filename
+                              .split("thumbnails/")
+                              .pop()}`
+                          )
+                        }
                         key={`${image.filename
                           .split("thumbnails/")
                           .pop()}-${idx}}`}
@@ -148,12 +178,28 @@ function Gallery() {
                             objectFit: "cover",
                           }}
                         />
-                      </Link>
+                      </div>
                     ) : (
                       <p>Error</p>
                     );
                   })}
-                {getImagesQuery.isLoading && <p>Cargando...</p>}
+                {getImagesQuery.isLoading && (
+                  <div
+                    style={{
+                      width: "100%",
+                      gridColumn: "1/-1",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ReactLoading
+                      type={"spinningBubbles"}
+                      color={"#035959"}
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
