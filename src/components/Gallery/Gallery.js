@@ -22,32 +22,32 @@ function Gallery() {
   const [images, setImages] = useState([]);
   const filenameIndex = useRef(undefined);
 
-  const fetchImages = async (filenames) => {
-    try {
-      return await Promise.all(
-        filenames.map((filename) =>
-          axios.get(".netlify/functions/get-image", {
-            params: { filename },
-          })
-        )
-      );
-    } catch (e) {
-      console.log("e", e);
-    }
-  };
+  // const fetchImages = async (filenames) => {
+  //   try {
+  //     return await Promise.all(
+  //       filenames.map((filename) =>
+  //         axios.get(".netlify/functions/get-image", {
+  //           params: { filename },
+  //         })
+  //       )
+  //     );
+  //   } catch (e) {
+  //     console.log("e", e);
+  //   }
+  // };
 
   const fetSignedUrl = async () => {
     return await axios.get(".netlify/functions/list-images");
   };
 
-  const getImagesQuery = useQuery(
-    ["images", filenamesToFetch],
-    () => fetchImages(filenamesToFetch),
-    {
-      // The query will not execute until the filenamesToFetch > 0
-      enabled: filenamesToFetch.length > 0,
-    }
-  );
+  // const getImagesQuery = useQuery(
+  //   ["images", filenamesToFetch],
+  //   () => fetchImages(filenamesToFetch),
+  //   {
+  //     // The query will not execute until the filenamesToFetch > 0
+  //     enabled: filenamesToFetch.length > 0,
+  //   }
+  // );
 
   const getFilenamesQuery = useQuery(["filenames"], fetSignedUrl);
 
@@ -57,7 +57,8 @@ function Gallery() {
   };
 
   const handleFetchMore = () => {
-    if (getImagesQuery.isLoading || getFilenamesQuery.isLoading) return;
+    // if (getImagesQuery.isLoading || getFilenamesQuery.isLoading) return;
+    if (getFilenamesQuery.isLoading) return;
     setFilenamesToFetch(
       filenames.slice(
         filenameIndex.current,
@@ -68,25 +69,37 @@ function Gallery() {
   };
 
   useInfiniteScroll({
-    loading: getImagesQuery.isLoading || getFilenamesQuery.isLoading,
+    // loading: getImagesQuery.isLoading || getFilenamesQuery.isLoading,
+    loading: getFilenamesQuery.isLoading,
     handleLoad: handleFetchMore,
     hasMore: hasMore(),
   });
 
-  useEffect(() => {
-    if (getImagesQuery.isSuccess && getImagesQuery.data?.length > 0) {
-      const tempImages = getImagesQuery.data.map((p, idx) => ({
-        filename:
-          filenameIndex.current !== IMAGE_NUMBER
-            ? filenames[filenameIndex.current - IMAGE_NUMBER + idx]
-            : filenames[idx],
-        data: p.data,
-      }));
-      setImages([...images, ...tempImages]);
-    }
+  // useEffect(() => {
+  //   if (getImagesQuery.isSuccess && getImagesQuery.data?.length > 0) {
+  //     const tempImages = getImagesQuery.data.map((p, idx) => ({
+  //       filename:
+  //         filenameIndex.current !== IMAGE_NUMBER
+  //           ? filenames[filenameIndex.current - IMAGE_NUMBER + idx]
+  //           : filenames[idx],
+  //       data: p.data,
+  //     }));
+  //     setImages([...images, ...tempImages]);
+  //   }
 
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [getImagesQuery.isSuccess]);
+
+  useEffect(() => {
+    // const tempImages = filenamesToFetch.map((fn, idx) =>
+    //   filenameIndex.current !== IMAGE_NUMBER
+    //     ? filenames[filenameIndex.current - IMAGE_NUMBER + idx]
+    //     : filenames[idx]
+    // );
+    setImages([...images, ...filenamesToFetch]);
+    console.log(filenamesToFetch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getImagesQuery.isSuccess]);
+  }, [filenamesToFetch]);
 
   useEffect(() => {
     if (getFilenamesQuery.isSuccess && getFilenamesQuery.data.data) {
@@ -156,22 +169,21 @@ function Gallery() {
                         // }}
                         onClick={() =>
                           setImageUrl(
-                            `https://paula-test.s3.us-east-2.amazonaws.com/${image.filename
+                            `https://paula-test.s3.us-east-2.amazonaws.com/${image
                               .split("thumbnails/")
                               .pop()}`
                           )
                         }
-                        key={`${image.filename
-                          .split("thumbnails/")
-                          .pop()}-${idx}}`}
+                        key={`${image.split("thumbnails/").pop()}-${idx}}`}
                         style={{
                           display: "flex",
                           alignItems: "center",
                         }}
                       >
                         <img
-                          src={`data:image/jpeg;base64,${image.data}`}
-                          alt={image.filename.split("thumbnails/").pop()}
+                          // src={`data:image/jpeg;base64,${image.data}`}
+                          src={`https://paula-test.s3.us-east-2.amazonaws.com/${image}`}
+                          alt={image.split("thumbnails/").pop()}
                           style={{
                             width: "100%",
                             height: "160px",
@@ -183,7 +195,7 @@ function Gallery() {
                       <p>Error</p>
                     );
                   })}
-                {getImagesQuery.isLoading && (
+                {getFilenamesQuery.isLoading && (
                   <div
                     style={{
                       width: "100%",
