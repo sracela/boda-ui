@@ -74,3 +74,30 @@ input[type=submit]:hover:disabled {
     color: #FFF !important;
     ;
 }
+
+.defaultButton {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #035959;
+    font-family: 'Oswald', sans-serif;
+    border: solid 1px #6a6a6a;
+    color: #FFF;
+    border-radius: 6px;
+    padding: 12px 50px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.defaultButton:hover {
+    opacity: 0.8;
+}
+
+.defaultButton:active {
+    opacity: 1;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
