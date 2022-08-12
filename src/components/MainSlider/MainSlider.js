@@ -81,23 +81,29 @@ function MainSlider() {
                     </div>
                     <div id="countdown">
                       <div id="countdownLi">
-                        <span id="days">{Math.floor(distance / day)}</span>D
+                        <span id="days">
+                          {Math.max(0, Math.floor(distance / day))}
+                        </span>
+                        D
                       </div>
                       <div id="countdownLi">
                         <span id="hours">
-                          {Math.floor((distance % day) / hour)}
+                          {Math.max(0, Math.floor((distance % day) / hour))}
                         </span>
                         H
                       </div>
                       <div id="countdownLi">
                         <span id="minutes">
-                          {Math.floor((distance % hour) / minute)}
+                          {Math.max(0, Math.floor((distance % hour) / minute))}
                         </span>
                         M
                       </div>
                       <div id="countdownLi">
                         <span id="seconds">
-                          {Math.floor((distance % minute) / second)}
+                          {Math.max(
+                            0,
+                            Math.floor((distance % minute) / second)
+                          )}
                         </span>
                         S
                       </div>
